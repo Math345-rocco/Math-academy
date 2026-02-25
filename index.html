@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy - Prof. Marwan Rouissi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0066cc, #004499);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffcc00;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffcc00;
+            color: #333;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            background: #ffdd44;
+        }
+
+        /* TD Section */
+        .td-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #f5f7fa 0%, #e4e8ec 100%);
+        }
+
+        .td-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #0066cc;
+            font-size: 2.5rem;
+        }
+
+        .td-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .td-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 5px solid #0066cc;
+        }
+
+        .td-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,102,204,0.3);
+        }
+
+        .td-card h3 {
+            color: #0066cc;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .td-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-card {
+            display: inline-block;
+            background: linear-gradient(135deg, #0066cc, #004499);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .btn-card:hover {
+            background: linear-gradient(135deg, #004499, #003366);
+        }
+
+        /* Exercises Section */
+        .exercises-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .exercises-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #0066cc;
+            font-size: 2.5rem;
+        }
+
+        .exercise-list {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .exercise-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid #0066cc;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .exercise-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,102,204,0.2);
+        }
+
+        .exercise-item h4 {
+            color: #0066cc;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .btn-small {
+            background: #0066cc;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-small:hover {
+            background: #004499;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #0066cc, #004499);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .contact-info p {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .slogan {
+            color: #ffcc00;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .td-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">📚 Academy -Mathématique</div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#td">TD</a></li>
+                <li><a href="#exercices">Exercices</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>🚀 Bienvenue</h1>
+            <h2>Prof. Marwan Rouissi</h2>
+            <p>TD d'Algèbre & Analyse - S2 Sup</p>
+            <a href="#td" class="btn">Voir les TD</a>
+        </div>
+    </section>
+
+    <!-- TD Section - Algèbre -->
+    <section id="td" class="td-section">
+        <h2>📚 Travaux Dirigés - Algèbre 2</h2>
+        <div class="td-grid">
+            <div class="td-card">
+                <h3>TD 1 - Les espaces vectorielles</h3>
+                <p>l'intersection, Somme direct</p>
+                <a href="HTML/Alg/TD_Révision_A____Z_Espaces_Vectoriels.pdf" class="btn-card" download>Voir TD 1</a>
+            </div>
+            <div class="td-card">
+                <h3>TD 2 - Applications liniéaires</h3>
+                <p>Noyau, Image, Injectivité, Surjectivité, Rang, Théorème du rang, Bases</p>
+                <a href="HTML/Alg/TD_Révision_A____Z_Applications_Linéaires.pdf" class="btn-card" download>Voir TD 2</a>
+            </div>
+            <div class="td-card">
+                <h3>TD 3 - Matrices</h3>
+                <p>Opérations, Inversion, Diagonalisation</p>
+                <a href="HTML/Alg/TD_Révision_A____Z_Matrices.pdf" class="btn-card" download>Voir TD 3</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercises Section - Analyse -->
+    <section id="exercices" class="exercises-section">
+        <h2>✏️ Travaux Dirigés - Analyse 2</h2>
+        <div class="exercise-list">
+            <div class="exercise-item">
+                <h4>Intégral simple</h4>
+                <p>Recherche de primitives usuelles</p>
+                <a href="HTML/Le.pdfs/TD_Révision_A____Z_Intégrale.pdf" class="btn-small" download>Voir</a>
+            </div>
+            <div class="exercise-item">
+                <h4>Les intégral généralisée</h4>
+                <p>Tout les cas</p>
+                <a href="HTML/Le.pdfs/TD_Révision_A____Z_Intégrale_Généralisées (2).pdf" class="btn-small" download>Voir</a>
+            </div>
+            <div class="exercise-item">
+                <h4>Les équations différentielles</h4>
+                <p>1er ordre et 2eme ordre</p>
+                <a href="HTML/Le.pdfs/TD_Révision_A____Z_Équations_Différentielles.pdf" class="btn-small" download>Voir</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>📧 Contact</h2>
+        <div class="contact-info">
+            <p>📧 rouissimarwan@gmail.com</p>
+            <p>🏛️ Academy - Département de Mathématiques</p>
+            <p>📍 Maroc</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Academy - Prof. Marwan Rouissi. Tous droits réservés.</p>
+        <p class="slogan">🔥 BONNE CHANCE 🔥</p>
+    </footer>
+</body>
+</html>
